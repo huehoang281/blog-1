@@ -14,7 +14,7 @@ export default function Home() {
  
   useEffect(() =>{
     const fetchPosts = async  () =>{
-      const res = await axios.get("post")
+      const res = await axios.get("/post")
       setPosts(res.data)
 
     }

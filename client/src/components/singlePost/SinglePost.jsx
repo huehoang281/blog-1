@@ -8,7 +8,7 @@ import { Context } from "../../context/Context";
 
 
 export default function SinglePost() {
-   const PF = "http://localhost:3000/images/";
+   const PF = "http://localhost:8000/images/";
    const location = useLocation();
    const path = location.pathname.split("/")[2];
    const [post, setPost] = useState({});
@@ -18,14 +18,12 @@ export default function SinglePost() {
    const [updateMode, setUpdateMode] = useState(false);
 
 
-
    useEffect(() => {
       const getPost = async () => {
-         const res = await axios.get("post/" + path);
-         console.log("tesst")
-         setPost(res.data[0]);
-         setTitle(res.title[0]);
-         setDesc(res.desc[0]);
+         const res = await axios.get("/post/" + path);
+         setPost(res.data);
+         setTitle(res.title);
+         setDesc(res.desc);
       };
       getPost()
 
@@ -33,10 +31,8 @@ export default function SinglePost() {
    }, [path]);
 
    const handleDelete = async () => {
-      try{
-         await axios.delete(`post/${post._id}`,
-         {data:{username:user.username},
-      });
+      try {
+         await axios.delete(`/post/${post._id}`, {data : {username : user.username}});
          window.location.replace("/");
 
       }catch(err){}

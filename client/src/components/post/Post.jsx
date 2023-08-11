@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Post({post}) {
-  const PF = "http://localhost:3000/images/";
+  const PF = "http://localhost:8000/images/";
   console.log(post)
   return (
     <div  className="post">

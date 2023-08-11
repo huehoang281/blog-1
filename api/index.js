@@ -2,7 +2,7 @@ const express = require('express')
 const dotenv = require("dotenv")
 const mongoose = require("mongoose");
 const app = express()
-const port = 3000
+const port = 8000
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const postRoute = require("./routes/post");
@@ -38,7 +38,6 @@ app.post("/api/upload", upload.single("file"),(req,res) =>{
 app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
 app.use("/api/post", postRoute)
-// http://localhost:3000/api/post/capnhat/id1
 app.use("/api/category", categoryRoute)
 
 app.get('/', (req, res) => {

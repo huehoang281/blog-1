@@ -9,7 +9,8 @@ export default function TopBar() {
   const {user,dispatch} = useContext(Context);
 
   const handleLogout  = () =>{
-    dispatch({type: "LOGOUT"})
+    dispatch({ type: "LOGOUT" })
+    window.location.replace("/login");
   }
 
 
